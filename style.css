@@ -94,24 +94,23 @@ h1 {
   grid-template-rows: repeat(5, 1fr);
 }
 
-#head {
-  grid-row: 3;
+#character {
+  grid-row: 3 / 5;
   grid-column: 2;
+  background: green;
+  
 }
 
-#chest {
-  grid-row: 4;
-  grid-column: 2;
-}
-
-#legs {
-  grid-row: 5;
-  grid-column: 2;
-}
 
 #fly {
   grid-column: 9;
   grid-row: 2;
+}
+
+#floor {
+  background: indigo;
+  grid-row: 5;
+grid-column: 1 / 11;
 }
 
 footer {
