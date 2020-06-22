@@ -1,128 +1,20 @@
-//import {GameCharacter, player1} from "constructor.js";
+import {GameCharacter} from "/constructor.js";
+import {Fly} from "/fly.js";
 
 /*
 Directions : left, right
 Movements : left, right, jump, fall, (duck), hit
 */
 
-class GameCharacter {
-  constructor(eltHTML, row, column) {
-    this.row = row;
-    this.column = column;
-    this.direction = "right";
-    this.state = "ready";
-    this.eltHTML = eltHTML;
-  }
-
-  goRight = () => {
-    if (this.column < 10) {
-      if ((this.direction = "left")) {
-        this.direction = "right";
-      }
-      this.column++;
-      this.state = "walk";
-    }
-    this.eltHTML.style.gridColumn = this.column;
-  };
-
-  goLeft = () => {
-    if (this.column > 1) {
-      if ((this.direction = "right")) {
-        this.direction = "left";
-      }
-      this.column--;
-      this.state = "walk";
-    }
-    this.eltHTML.style.gridColumn = this.column;
-  };
-
-  goUp = () => {
-    var jump = setTimeout(() => {
-      this.state = "jump";
-      this.row = "1 / 3";
-      this.eltHTML.style.gridRow = this.row;
-      //console.log("we go uuuup")
-    }, 200);
-
-    var fall = setTimeout(() => {
-      this.state = "fall";
-      this.row = "3 / 5";
-      this.eltHTML.style.gridRow = this.row;
-      //console.log("and dooown")
-    }, 350);
-    this.state = "ready";
-  };
-
-  duck = () => {
-    var duck = setTimeout(() => {
-      this.state = "duck";
-      this.row = "4";
-      this.eltHTML.style.gridRow = this.row;
-      console.log("we duuuuck")
-    }, 200);
-
-    var getUp = setTimeout(() => {
-      this.state = "ready";
-      this.row = "3 / 5";
-      this.eltHTML.style.gridRow = this.row;
-      //console.log("and back up")
-    }, 400);
-    this.state = "ready";
-  };
-
-
-
-hit = () => {
-    const initialX = this.column;
-    if (this.direction == 'right' && this.column < 10) {
-        console.log('hit right!');
-        var hitRight = setTimeout(() => {
-            this.state = "hitRight";
-            this.column = `${this.column} / ${this.column + 2}`;
-            console.log(this.column);
-            this.eltHTML.style.gridColumn = this.column;
-            //console.log("we go uuuup")
-          }, 200);
-      
-          var fall = setTimeout(() => {
-            this.column = initialX;
-            this.eltHTML.style.gridColumn = this.column;
-            //console.log("and dooown")
-          }, 350);
-          this.state = "ready";
-    } else {
-        if (this.direction == 'left' && this.column > 1) {
-            console.log('hit left!');
-            var hitRight = setTimeout(() => {
-                this.state = "hitLeft";
-                this.column = `${this.column -2} / ${this.column}`
-                console.log(this.column);
-                this.eltHTML.style.gridColumn = this.column;
-                //console.log("we go uuuup")
-              }, 200);
-          
-              var fall = setTimeout(() => {
-                this.column = initialX;
-                this.eltHTML.style.gridColumn = this.column;
-                //console.log("and dooown")
-              }, 350);
-              this.state = "ready";
-        }
-    }
-}
-
-
-  /* END CONSTRUCTOR */
-}
-
+/* VAR */ 
 var gameAreaElt = document.getElementsByClassName("gameDisplay");
 var charElt = document.getElementById("character");
 var flyElt = document.getElementById("fly");
 var floor = document.getElementById("floor");
 
 
-
 var player1 = new GameCharacter(charElt, "3 / 5", 2);
+var fly1 = new Fly (flyElt,2, 9, 1000)
 
 
 /*  EVT LISTENERS & actions */
@@ -161,6 +53,7 @@ const checkMovement = (e) => {
 
 const letsPlay = () => {
  document.onkeydown = checkMovement;
+ fly1.move();
 }
 
 letsPlay()
