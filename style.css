@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: powderblue;
+}
+
+.bloc1 {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 10vh;
+}
+
+h1 {
+  text-align: center;
+  color: crimson;
+}
+
+#rules,
+#instructions {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: flex-start;
+  height: 10vh;
+  width: 35vw;
+}
+
+.spaceWord {
+  border: 1px black solid;
+  border-radius: 5px;
+  width: 20px;
+  height: 7px;
+  padding: 2px 6px 2px 6px;
+}
+
+/* GAME AREA*/
+
+.bloc2 {
+  box-sizing: border-box;
+  /* border: grey 0.5px solid;
+  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0 0 10px;
+  height: 77vh;
+}
+
+#modeChoice {
+  text-align: center;
+  background: blueviolet;
+  color: whitesmoke;
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 0px 5px 5px 0;
+}
+
+.choice {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#soloMode,
+#multiMode {
+  border: 3px white groove;
+  width: 15%;
+  height: 10%;
+  margin: 10px;
+}
+
+#breakdownBar {
+  margin-top: 1vh;
+  background: red;
+  color: brown;
+  width: 100vw;
+}
+
+.gameDisplay {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 63vh;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+#head {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+#chest {
+  grid-row: 4;
+  grid-column: 2;
+}
+
+#legs {
+  grid-row: 5;
+  grid-column: 2;
+}
+
+#fly {
+  grid-column: 9;
+  grid-row: 2;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 50vw;
+}
+
+a {
+  text-decoration: none;
+  color: teal;
+}
