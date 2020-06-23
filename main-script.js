@@ -1,4 +1,4 @@
-import {GameCharacter} from "/constructor.js";
+import {GameCharacter} from "/PC.js";
 import {Fly} from "/fly.js";
 
 /*
@@ -13,8 +13,8 @@ var flyElt = document.getElementById("fly");
 var floor = document.getElementById("floor");
 
 
-var player1 = new GameCharacter(charElt, "3 / 5", 2);
-var fly1 = new Fly (flyElt,2, 9, 1000)
+var player1 = new GameCharacter(charElt,3,4,2,2);
+var fly1 = new Fly (flyElt,"2", "9", 5000)
 
 
 /*  EVT LISTENERS & actions */
@@ -43,7 +43,7 @@ const checkMovement = (e) => {
 
   } else if (e.keyCode == "32") {
     // spacebar
-    player1.hit();
+    player1.hit(fly1);
     console.log("hit !");
   }
 };
@@ -56,4 +56,8 @@ const letsPlay = () => {
  fly1.move();
 }
 
+
+
 letsPlay()
+//console.log(`${player1.row} (length : ${player1.row.length} - ${player1.column} (length : ${(player1.column).length}) `)
+//console.log(columnStrg)
