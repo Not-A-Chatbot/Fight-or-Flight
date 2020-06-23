@@ -1,5 +1,6 @@
 import {GameCharacter} from "/PC.js";
 import {Fly} from "/fly.js";
+import {timerBar, buzzSound} from "/misc.js";
 
 /*
 Directions : left, right
@@ -14,7 +15,7 @@ var floor = document.getElementById("floor");
 
 
 var player1 = new GameCharacter(charElt,3,4,2,2);
-var fly1 = new Fly (flyElt,"2", "9", 5000)
+var fly1 = new Fly (flyElt,"2", "8", 3000)
 
 
 /*  EVT LISTENERS & actions */
@@ -54,8 +55,11 @@ const checkMovement = (e) => {
 const letsPlay = () => {
  document.onkeydown = checkMovement;
  fly1.move();
+ timerBar();
 }
 
+
+//if fly is down, pause timer bar, propose new fly
 
 
 letsPlay()

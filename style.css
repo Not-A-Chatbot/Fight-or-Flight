@@ -75,11 +75,18 @@ h1 {
   margin: 10px;
 }
 
+.characterStatus {
+display: flex;
+justify-content: flex-start;
+}
+
 #breakdownBar {
   margin-top: 1vh;
-  background: red;
+  background: coral;
   color: brown;
   width: 100vw;
+  border-radius: 20px;
+  
 }
 
 .gameDisplay {
@@ -106,7 +113,8 @@ h1 {
 #fly {
   grid-column: 5;
   grid-row: 3;
-  z-index: 5;
+  animation: fly-movement 3s alternate cubic-bezier(.6,.07,.33,.86)  infinite;
+
 }
 
 /*#floor {
@@ -126,4 +134,30 @@ footer {
 a {
   text-decoration: none;
   color: teal;
+}
+
+
+
+@keyframes fly-movement {
+  0% { transform: translateX(7px);}
+  25% {transform: translateY(4px);}
+  45% {transform: translateX(-5px);}
+  60% {transform: translateY(-4px);}
+  70% {transform: translateY(6px);}
+  75% {transform: translateX(3px) ;}
+  80% {transform: translateX(3px);}
+  90% { transform: translateY(2px);}
+  100% {transform: translateX(-4px);}
+}
+
+@keyframes fly-fall {
+  0% { transform: translateY(-7px);}
+  25% {transform: rotate(10deg);}
+  45% {transform: translateY(-5px);}
+  60% {transform: translateY(-4px);}
+  70% {transform: rotate(-5deg);}
+  75% {transform: translateY(-3px) ;}
+  80% {transform: translateY(-3px) rotate(2deg);}
+  90% { transform: translateY(-2px);}
+  100% {transform: translateY(-4px) rotate(-3deg);}
 }

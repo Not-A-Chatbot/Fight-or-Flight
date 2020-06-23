@@ -1,3 +1,5 @@
+import { buzzSound } from "./misc.js";
+
 export class Fly {
   constructor(eltHTML, row, column, speed) {
     this.eltHTML = eltHTML;
@@ -9,43 +11,60 @@ export class Fly {
   }
   // FLY RANDOM MOVEMENTS (between all columns, and 3 rows)
   move = () => {
+    buzzSound.play();
     this.interval = setInterval(() => {
       console.log(`I'm moving`);
 
-        const randMoveV = Math.random();
-        const randMoveH = Math.random();
-        //console.log(randMoveV + "-" + randMoveH);
+      const randMoveV = Math.random();
+      const randMoveH = Math.random();
+      console.log(randMoveV + "-" + randMoveH);
 
-        if (this.row > 1 && this.row < 4) {
-            if (randMoveV > .5) {this.row ++} 
-            else { this.row -- }
-        } else if (this.row === 1) {
-            if (randMoveV > .2) {this.row ++}
-        } else if (this.row === 4) {
-            if (randMoveV > .2) {this.row --}
+      if (this.row > 1 && this.row < 4) {
+        if (randMoveV > 0.5) {
+          this.row++;
+        } else {
+          this.row--;
         }
-
-        if (this.column > 2 && this.column < 9) {
-            if (randMoveH > .5) {this.column ++} 
-            else { this.column -- }
-        } else if (this.column === 2) {
-            if (randMoveH > .2) {this.column ++}
-        } else if (this.column === 9) {
-            if (randMoveH > .2) {this.column --}
+      } else if (this.row == 1) {
+        if (randMoveV > 0.2) {
+          this.row = 2;
         }
+      } else if (this.row == 4) {
+        if (randMoveV > 0.2) {
+          this.row -= 1;
+        }
+      }
 
+      if (this.column > 2 && this.column < 9) {
+        if (randMoveH > 0.5) {
+          this.column += 1;
+        } else {
+          this.column -= 1;
+        }
+      } else if (this.column == 2) {
+        if (randMoveH > 0.2) {
+          this.column += 1;
+        }
+      } else if (this.column >= 9) {
+        if (randMoveH > 0.2) {
+          this.column = 8;
+        }
+      }
 
+      this.eltHTML.style.gridRow = `${this.row}`;
+      this.eltHTML.style.gridColumn = `${this.column}`;
+      console.log(`new row : ${this.row} - new col : ${this.column}`);
 
-        this.eltHTML.style.gridRow =`${this.row}`;
-        this.eltHTML.style.gridColumn = `${this.column}`;
     }, this.speed);
   };
 
   // FALLING FLY
   catched = () => {
+    buzzSound.pause();   // doesn't pause !
     clearInterval(this.interval);
     this.row = 5;
     this.eltHTML.style.gridRow = `${this.row}`;
+    this.eltHTML.style.animation = `fly-fall 2s cubic-bezier(.6,.07,.33,.86)`;
     //add sounds
   };
 }
