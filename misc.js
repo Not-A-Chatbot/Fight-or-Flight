@@ -5,10 +5,10 @@ export function timerBar(status) {
   var o = { status: "running" };
 
   function progress() {
-    console.log(o.status);
+    //console.log(o.status);
     if (width <= 1 || o.status == "pause") {
       clearInterval(id);
-      console.log("hey");
+      //console.log("hey");
       width = 0;
     } else {
       width--;
@@ -90,7 +90,7 @@ export function loadSounds() {
 
 export function randomBuzz(sound1, sound2) {
   const random = Math.floor(Math.random() * 2);
-  console.log(random)
+  //console.log(random)
   if (random == 0) { sound1.play() 
   } else { sound2.play()}
 }

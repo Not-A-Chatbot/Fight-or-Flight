@@ -1,5 +1,5 @@
 import {GameCharacter} from "/PC.js";
-import {Fly} from "/fly.js";
+import {flyElt, Fly, fly2,fly3,fly4, flies} from "/fly.js";
 import {timerBar, loadSounds, music, hitSound, killSound, missSound, jumpSound } from "/misc.js";
 
 /*
@@ -11,7 +11,7 @@ Movements : left, right, jump, fall, (duck), hit
 /* VAR */ 
 var gameAreaElt = document.getElementsByClassName("gameDisplay");
 var charElt = document.getElementById("character");
-var flyElt = document.getElementById("fly");
+
 var floor = document.getElementById("floor");
 
 
@@ -22,7 +22,7 @@ var fly1;
 /* 
 */
 
-console.log(">", loadSounds());
+//console.log(">", loadSounds());
 
  loadSounds().then(audioObjects => {
 })
@@ -71,18 +71,14 @@ const checkMovement = (e) => {
 
 
 const letsPlay = () => {
-  //music.play();
  var timer = timerBar();
- music.play();
- fly1 = new Fly (flyElt,"2", "8", 3000, timer)
+ //music.play();
+ fly1 = new Fly (flyElt,"2", "8",0.3, 2500, timer)
  fly1.move();
  document.onkeydown = checkMovement;
+ //newLevel(fly1,fly2);
 }
 
 
-//if fly is down, pause timer bar, propose new fly
-
 
 letsPlay()
-//console.log(`${player1.row} (length : ${player1.row.length} - ${player1.column} (length : ${(player1.column).length}) `)
-//console.log(columnStrg)
