@@ -117,6 +117,8 @@ justify-content: flex-start;
   grid-column: 5;
   grid-row: 3;
   animation: fly-movement 3s alternate cubic-bezier(.6,.07,.33,.86)  infinite;
+  text-align: center;
+  padding-top: 10px;
 
 }
 

@@ -1,4 +1,5 @@
-import {timerBar, randomBuzz } from "./misc.js";
+import {loadSounds, buzzClip1, buzzClip2, buzzClip3, randomBuzz, music } from "./misc.js";
+
 
 export class Fly {
   constructor(eltHTML, row, column, speed, timer) {
@@ -54,7 +55,7 @@ export class Fly {
           this.column = 8;
         }
       }
-      //randomBuzz();
+      randomBuzz(buzzClip1,buzzClip2);
       this.eltHTML.style.gridRow = `${this.row}`;
       this.eltHTML.style.gridColumn = `${this.column}`;
       console.log(`new row : ${this.row} - new col : ${this.column}`);
@@ -66,9 +67,10 @@ export class Fly {
   catched = () => {
     clearInterval(this.interval);
     this.row = 5;
+    buzzClip3.play()
     this.eltHTML.style.gridRow = `${this.row}`;
     this.eltHTML.style.animation = `fly-fall 2s cubic-bezier(.6,.07,.33,.86)`;
-    this.timer.status = 'pause'; //doesn't work
-    //add sounds
+    this.timer.status = 'pause'; 
+    music.pause();
   };
 }

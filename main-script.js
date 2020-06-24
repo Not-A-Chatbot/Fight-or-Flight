@@ -6,13 +6,7 @@ import {timerBar, loadSounds, music, hitSound, killSound, missSound, jumpSound }
 Directions : left, right
 Movements : left, right, jump, fall, (duck), hit
 */
-console.log(">", loadSounds);
 
-loadSounds().then(audioObjects => {
-  // un array contenant tes audio obj ... index => play() // pause()
-  console.log("yata ?", audioObjects[0].play());
-  
-})
 
 /* VAR */ 
 var gameAreaElt = document.getElementsByClassName("gameDisplay");
@@ -21,8 +15,24 @@ var flyElt = document.getElementById("fly");
 var floor = document.getElementById("floor");
 
 
+
 var player1 = new GameCharacter(charElt,3,4,2,2);
 var fly1;
+
+/* 
+*/
+
+console.log(">", loadSounds());
+
+ loadSounds().then(audioObjects => {
+})
+
+  // un array contenant tes audio obj ... index => play() // pause()
+ //console.log("yata ?", audioObjects[0].play());
+
+
+
+
 
 
 /*  EVT LISTENERS & actions */
@@ -62,8 +72,8 @@ const checkMovement = (e) => {
 
 const letsPlay = () => {
   //music.play();
-
  var timer = timerBar();
+ music.play();
  fly1 = new Fly (flyElt,"2", "8", 3000, timer)
  fly1.move();
  document.onkeydown = checkMovement;

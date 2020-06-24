@@ -1,7 +1,7 @@
 export function timerBar(status) {
   var elem = document.getElementById("breakdownBar");
   var width = 100;
-  var id = setInterval(progress, 1000);
+  var id = setInterval(progress, 600);
   var o = { status: "running" };
 
   function progress() {
@@ -34,10 +34,6 @@ export function timerBar(status) {
   return o;
 }
 
-export var music = document.createElement("audio");
-music.src = "./Ressource/music/17150_1461763610.mp3";
-music.volume = 0.1;
-
 export var hitSound = document.createElement("audio");
 hitSound.src = "./Ressource/sfx/NFF-slap-03.wav";
 hitSound.volume = 0.4;
@@ -54,17 +50,20 @@ export var jumpSound = document.createElement("audio");
 jumpSound.src = "./Ressource/sfx/NFF-micro-jump.wav";
 jumpSound.volume = 0.2;
 
-var buzzClip1 = document.createElement("audio");
+export var buzzClip1 = document.createElement("audio");
 buzzClip1.src =
   "./Ressource/sfx/zapsplat_animal_insect_bee_wasp_fly_by_001_40041.mp3";
+  buzzClip1.volume = .2;
 
-var buzzClip2 = document.createElement("audio");
+export var buzzClip2 = document.createElement("audio");
 buzzClip2.src =
   "./Ressource/sfx/zapsplat_animals_insect_bee_wing_flap_short_pre_flight_12000.mp3";
+  buzzClip2.volume = .2;
 
-var buzzClip3 = document.createElement("audio");
+export var buzzClip3 = document.createElement("audio");
 buzzClip3.src =
   "./Ressource/sfx/animal_insect_fly_buzz_around_close_up_002.mp3";
+  buzzClip3.volume = .2;
 
 export function loadSounds() {
   const urls = [
@@ -89,12 +88,12 @@ export function loadSounds() {
   });
 }
 
-export function randomBuzz() {
-  const buzzClips = [buzzClip1, buzzClip2, buzzClip3];
-  const randomIndex = Math.floor(Math.random() * 3);
-  console.log(randomIndex + "-" + buzzClips[randomIndex]);
-  buzzClips[randomIndex].play();
-  setTimeout(function () {
-    buzzClips[randomIndex].pause();
-  }, 1000);
+export function randomBuzz(sound1, sound2) {
+  const random = Math.floor(Math.random() * 2);
+  console.log(random)
+  if (random == 0) { sound1.play() 
+  } else { sound2.play()}
 }
+
+export var music = document.getElementById("gameMusic");
+music.volume = 0.1;
