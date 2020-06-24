@@ -1,11 +1,18 @@
 import {GameCharacter} from "/PC.js";
 import {Fly} from "/fly.js";
-import {timerBar, buzzSound} from "/misc.js";
+import {timerBar, loadSounds, music, hitSound, killSound, missSound, jumpSound } from "/misc.js";
 
 /*
 Directions : left, right
 Movements : left, right, jump, fall, (duck), hit
 */
+console.log(">", loadSounds);
+
+loadSounds().then(audioObjects => {
+  // un array contenant tes audio obj ... index => play() // pause()
+  console.log("yata ?", audioObjects[0].play());
+  
+})
 
 /* VAR */ 
 var gameAreaElt = document.getElementsByClassName("gameDisplay");
@@ -15,7 +22,7 @@ var floor = document.getElementById("floor");
 
 
 var player1 = new GameCharacter(charElt,3,4,2,2);
-var fly1 = new Fly (flyElt,"2", "8", 3000)
+var fly1;
 
 
 /*  EVT LISTENERS & actions */
@@ -24,28 +31,29 @@ const checkMovement = (e) => {
   console.log(e.key);
   if (e.keyCode == "38") {
     // up arrow
-    console.log("jump");
-    player1.goUp();
+    //console.log("jump");
+    player1.goUp(fly1);
 
   } else if (e.keyCode == "40") {
     // down arrow
-    console.log("duck !");
+    //console.log("duck !");
     player1.duck();
 
   } else if (e.keyCode == "37") {
     // left arrow
-    console.log("to the left !");
+    //console.log("to the left !");
     player1.goLeft();
 
   } else if (e.keyCode == "39") {
     // right arrow
-    console.log("to the right");
+    //console.log("to the right");
     player1.goRight();
 
   } else if (e.keyCode == "32") {
     // spacebar
+    //console.log("hit !");
     player1.hit(fly1);
-    console.log("hit !");
+    
   }
 };
 
@@ -53,9 +61,12 @@ const checkMovement = (e) => {
 
 
 const letsPlay = () => {
- document.onkeydown = checkMovement;
+  //music.play();
+
+ var timer = timerBar();
+ fly1 = new Fly (flyElt,"2", "8", 3000, timer)
  fly1.move();
- timerBar();
+ document.onkeydown = checkMovement;
 }
 
 

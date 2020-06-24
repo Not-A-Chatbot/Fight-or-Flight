@@ -1,3 +1,5 @@
+import { killSound, missSound, jumpSound, hitSound } from "./misc.js";
+
 export class GameCharacter {
   constructor(eltHTML, rowStart, rowEnd, columnStart, columnEnd) {
     this.rowStart = rowStart;
@@ -33,17 +35,20 @@ export class GameCharacter {
     this.eltHTML.style.gridColumn = `${this.columnStart} / ${this.columnEnd}`;
   };
 
-  goUp = () => {
+  goUp = (fly) => {
     var jump = setTimeout(() => {
       this.state = "jump";
       this.rowStart = 1;
       this.rowEnd = 3;
       this.eltHTML.style.gridRow = `${this.rowStart} / ${this.rowEnd}`;
+      jumpSound.play();
       //console.log("we go uuuup")
       console.log(this.checkHit(fly));
-          if (this.checkHit(fly)) {
-            if (this.successKill(fly)) {fly.catched()}
-          }
+      if (this.checkHit(fly)) {
+        if (this.successKill(fly)) {
+          fly.catched();
+        }
+      }
     }, 200);
 
     var fall = setTimeout(() => {
@@ -89,6 +94,7 @@ export class GameCharacter {
         this.columnEnd += 2;
         this.columnStart += 1;
         this.eltHTML.style.gridColumn = `${this.columnStart} / ${this.columnEnd}`;
+        hitSound.play();
         //
         console.log(this.checkHit(fly));
         if (this.checkHit(fly)) {
@@ -112,6 +118,7 @@ export class GameCharacter {
           this.state = "hitLeft";
           this.columnEnd--;
           this.eltHTML.style.gridColumn = `${this.columnStart} / ${this.columnEnd}`;
+          hitSound.play();
           //
           console.log(this.checkHit(fly));
           if (this.checkHit(fly)) {
@@ -151,6 +158,12 @@ export class GameCharacter {
   successKill = (fly) => {
     var success = Math.random() * 1;
     console.log(success);
+    if (success <= fly.stealth) {
+      killSound.play();
+    } else {
+      missSound.play();
+    }
+
     return success <= fly.stealth;
   };
 

@@ -1,17 +1,17 @@
-import { buzzSound } from "./misc.js";
+import {timerBar, randomBuzz } from "./misc.js";
 
 export class Fly {
-  constructor(eltHTML, row, column, speed) {
+  constructor(eltHTML, row, column, speed, timer) {
     this.eltHTML = eltHTML;
     this.row = row;
     this.column = column;
-    this.stealth = 0.8; // are the chances to catch the fly
+    this.stealth = 0.9; // are the chances to catch the fly
     this.speed = speed;
     this.interval = null;
+    this.timer = timer;
   }
   // FLY RANDOM MOVEMENTS (between all columns, and 3 rows)
   move = () => {
-    buzzSound.play();
     this.interval = setInterval(() => {
       console.log(`I'm moving`);
 
@@ -22,16 +22,20 @@ export class Fly {
       if (this.row > 1 && this.row < 4) {
         if (randMoveV > 0.5) {
           this.row++;
+        
         } else {
           this.row--;
+        
         }
       } else if (this.row == 1) {
         if (randMoveV > 0.2) {
           this.row = 2;
+        
         }
       } else if (this.row == 4) {
         if (randMoveV > 0.2) {
           this.row -= 1;
+          
         }
       }
 
@@ -50,7 +54,7 @@ export class Fly {
           this.column = 8;
         }
       }
-
+      //randomBuzz();
       this.eltHTML.style.gridRow = `${this.row}`;
       this.eltHTML.style.gridColumn = `${this.column}`;
       console.log(`new row : ${this.row} - new col : ${this.column}`);
@@ -60,11 +64,11 @@ export class Fly {
 
   // FALLING FLY
   catched = () => {
-    buzzSound.pause();   // doesn't pause !
     clearInterval(this.interval);
     this.row = 5;
     this.eltHTML.style.gridRow = `${this.row}`;
     this.eltHTML.style.animation = `fly-fall 2s cubic-bezier(.6,.07,.33,.86)`;
+    this.timer.status = 'pause'; //doesn't work
     //add sounds
   };
 }
