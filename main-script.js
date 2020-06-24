@@ -16,6 +16,7 @@ var floor = document.getElementById("floor");
 
 
 
+
 var player1 = new GameCharacter(charElt,3,4,2,2);
 var fly1;
 

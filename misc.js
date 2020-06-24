@@ -97,3 +97,12 @@ export function randomBuzz(sound1, sound2) {
 
 export var music = document.getElementById("gameMusic");
 music.volume = 0.1;
+
+/*export function addKill () {
+  var killsDiv = document.getElementById("points");
+  var newKill = document.createElement('div');
+  newKill.classList.add('newKill');
+  killsDiv.appendChild(newKill);
+  kills ++
+}
+*/

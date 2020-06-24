@@ -1,4 +1,5 @@
 import {timerBar,loadSounds, buzzClip1, buzzClip2, buzzClip3, randomBuzz, music } from "./misc.js";
+export var kills = 0;
 
 
 export var flyElt = document.getElementById("fly");
@@ -73,10 +74,13 @@ export class Fly {
     this.row = 5;
     buzzClip3.play()
     this.death = true;
+    
     this.eltHTML.style.gridRow = `${this.row}`;
     this.eltHTML.style.animation = `fly-fall 2s cubic-bezier(.6,.07,.33,.86)`;
     this.timer.status = 'pause'; 
     music.pause();
+    addKill();
+    console.log('kills : ' + kills);
   };
 }
 
@@ -103,4 +107,12 @@ export function levels (flies) {   // doesn't work
 
     console.log(`previous fly is dead, long lives the new fly!`);
   }
+}
+
+export function addKill () {
+  var killsDiv = document.getElementById("points");
+  var newKill = document.createElement('div');
+  newKill.classList.add('newKill');
+  killsDiv.appendChild(newKill);
+  kills += 1;
 }
