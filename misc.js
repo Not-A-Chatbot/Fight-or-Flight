@@ -1,5 +1,12 @@
 import { setGameNextAction } from "./main-script.js";
 
+
+export var btnStart = document.getElementById("btn-start");
+export var btnAgain = document.getElementById("btn-again");
+export var killsElt = document.getElementById("kills");
+export var killsConclusionElt = document.getElementById("conclusion");
+
+
 export function timerBar(status) {
   var elem = document.getElementById("breakdownBar");
   var width = 100;
@@ -10,7 +17,7 @@ export function timerBar(status) {
     if (width == 0 || o.status == "pause") {
       clearInterval(id);
       setGameNextAction("endGame");
-      btnAgain.parentElement.classList.toggle = "inactive";
+
     } else {
       width--;
       elem.style.width = width + "vw";
@@ -109,7 +116,5 @@ export var music = document.getElementById("gameMusic");
 music.volume = 0.1;
 music.loop = true;
 
-export var btnStart = document.getElementById("btn-start");
-export var btnAgain = document.getElementById("btn-again");
 
 

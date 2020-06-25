@@ -1,6 +1,6 @@
 import { GameCharacter } from "/PC.js";
 import { kills, flyElt, Fly } from "/fly.js";
-import {
+import {killsConclusionElt,killsElt,
   btnStart,
   btnAgain,
   timerBar,
@@ -32,7 +32,7 @@ loadSounds().then((audioObjects) => {});
 // un array contenant tes audio obj ... index => play() // pause()
 //console.log("yata ?", audioObjects[0].play());
 
-
+killsElt.innerText = `${kills}`;
 
 /*  EVT LISTENERS & actions */
 
@@ -66,8 +66,19 @@ export function setGameNextAction(mode) {
   if (mode === "inc-level") {//level++;
   letsPlay();}
   else {
-    console.log(`heyyy time's up !`);
+    //console.log(`heyyy time's up !`);
+    if (kills === 0) {
+      killsConclusionElt.innerText = `Now might be a good time to open the window...`;
+      console.log(`0 kills changed inner text`);
+    } else {killsConclusionElt.innerText = `You can now rest before the dead bodies of your ennemies.`; console.log(`multiple kills changed innertext`);}
+    killsElt.innerText = `${kills}`;
+    console.log(`added nb of kills`);
     fly1.catched();
+    console.log(`catched fly`);
+    btnAgain.parentElement.classList.toggle("inactive");
+    console.log(`toggle the class`);
+    
+
   }
 }
 
@@ -102,14 +113,17 @@ console.log("letsPlay - ok")
 };
 
 btnStart.onclick = () => {
-  btnStart.parentElement.classList.toggle = "inactive";
+  console.log(btnStart.parentElement)
+  console.log(btnStart.parentElement.classList.contains("inactive"))
+  btnStart.parentElement.classList.toggle("inactive");
+  console.log(btnStart.parentElement.classList.contains("inactive"))
   letsPlay();
   document.onkeydown = checkMovement;
   timer = timerBar();
 };
 
 btnAgain.onclick = () => {
-  btnAgain.parentElement.classList.toggle = "inactive";
+  btnAgain.parentElement.classList.toggle("inactive");
   letsPlay();
   document.onkeydown = checkMovement;
   timer = timerBar();
