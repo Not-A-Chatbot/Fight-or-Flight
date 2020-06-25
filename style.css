@@ -164,7 +164,7 @@ h1 {
   height: 15vh;
   width: 80vw;
 
-  font-family: "Cabin Sketch", cursive;
+  font-family: 'Archivo Narrow', sans-serif;
   line-height: 30px;
 }
 
@@ -259,6 +259,7 @@ h1 {
 
 
 footer {
+  font-family: 'Archivo Narrow', sans-serif;
   position: fixed;
   bottom: 0;
   left: 50vw;
