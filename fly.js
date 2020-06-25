@@ -82,17 +82,30 @@ export class Fly {
     addKill();
     console.log('kills : ' + kills);
   };
+
+
+  // RESSURECT FLY
+  newFly = () => {
+    setTimeout(() => {
+      this.row = String(Math.floor(Math.random()*3));
+      this.column = String(Math.floor(Math.random()*8)+1);
+      this.stealth *= 1.5;
+      this.speed *= 1.13;
+      console.log(`new row: ${this.row}  new col : ${this.column} new stealth :  ${this.stealth} new speed : ${this.speed}`);
+      letsplay();
+    }, 500);
+  }
 }
 
-export var fly1 = new Fly (flyElt,"2", "8",0.7, 2500, timerBar)
-export var fly2 = new Fly (flyElt, "4", "7", 0.5, 2000, timerBar)
-export var fly3 = new Fly (flyElt, "3", "3", 0.3,1500, timerBar )
-export var fly4 = new Fly (flyElt, "1", "7", 0.1,1000, timerBar )
+//export var fly1 = new Fly (flyElt,"2", "8",0.7, 2500, timerBar)
+//export var fly2 = new Fly (flyElt, "4", "7", 0.5, 2000, timerBar)
+//export var fly3 = new Fly (flyElt, "3", "3", 0.3,1500, timerBar )
+//export var fly4 = new Fly (flyElt, "1", "7", 0.1,1000, timerBar )
 
-export var flies = [fly1,fly2,fly3,fly4];
+//export var flies = [fly1,fly2,fly3,fly4];
 
 
-export function levels (flies) {   // doesn't work
+/*export function levels (flies) {   // doesn't work
 
   for (let i = 0; i < flies.length; i++) {
 
@@ -108,6 +121,7 @@ export function levels (flies) {   // doesn't work
     console.log(`previous fly is dead, long lives the new fly!`);
   }
 }
+*/
 
 export function addKill () {
   var killsDiv = document.getElementById("points");
@@ -116,3 +130,4 @@ export function addKill () {
   killsDiv.appendChild(newKill);
   kills += 1;
 }
+

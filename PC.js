@@ -35,7 +35,7 @@ export class GameCharacter {
     this.eltHTML.style.gridColumn = `${this.columnStart} / ${this.columnEnd}`;
   };
 
-  goUp = (fly) => {
+  goUp = (fly, callback) => {
     var jump = setTimeout(() => {
       this.state = "jump";
       this.rowStart = 1;
@@ -47,6 +47,7 @@ export class GameCharacter {
       if (this.checkHit(fly)) {
         if (this.successKill(fly)) {
           fly.catched();
+          callback("inc-level");
         }
       }
     }, 200);
@@ -80,8 +81,7 @@ export class GameCharacter {
     this.state = "ready";
   };
 
-  hit = (fly) => {
-    //console.log(this);
+  hit = (fly, callback) => {
     //console.log(fly);
 
     const originColEnd = this.columnEnd;
@@ -100,6 +100,8 @@ export class GameCharacter {
         if (this.checkHit(fly)) {
           if (this.successKill(fly)) {
             fly.catched();
+            alert("killed");
+            callback("inc-level");
           }
         }
         //
@@ -124,6 +126,8 @@ export class GameCharacter {
           if (this.checkHit(fly)) {
             if (this.successKill(fly)) {
               fly.catched();
+              alert("killed");
+              callback("inc-level");
             }
           }
           //
@@ -169,5 +173,3 @@ export class GameCharacter {
 
   /* END CONSTRUCTOR */
 }
-
-

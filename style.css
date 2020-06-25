@@ -1,11 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bad+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
-
+/*font-family: 'Nanum Pen Script', cursive; */
+/*font-family: 'Cabin Sketch', cursive;*/
+/*font-family: 'Kalam', cursive; */
+/*font-family: 'Rock Salt', cursive; */
+/* font-family: 'Bad Script', cursive; */
+/*font-family: 'Archivo Narrow', sans-serif;*/
+/* font-family: 'Fredoka One', cursive; */
 
 
 * {
@@ -17,27 +25,17 @@ body {
   background: powderblue;
 }
 
-.bloc1 {
-  position: relative;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 10vh;
-}
-
 h1 {
   text-align: center;
   font-size: 4rem;
   color: crimson;
-  font-family: 'Covered By Your Grace', cursive;
+  font-family: "Covered By Your Grace", cursive;
 }
 
 #points {
-margin-left: 38vw;
-display: flex;
-justify-content: flex-start;
+  margin-left: 38vw;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .newKill {
@@ -46,8 +44,62 @@ justify-content: flex-start;
   height: 3vh;
   background-repeat: round;
   background-size: 3vw;
-
 }
+
+
+
+#intro {
+  position: absolute;
+  z-index: 5;
+  background: rgba(176, 224, 230, 0.79);
+  top: 27vh;
+  left: 10vw;
+  border-radius: 5vw;
+  font-family: "Rock Salt", cursive;
+  font-size: 1.4rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  width: 80vw;
+  height: 40vh;
+  box-sizing: border-box;
+  padding: 2vh 0 3vh 0;
+}
+
+#btn-start {
+  position: relative;
+  box-sizing: border-box;
+  width: 15vw;
+  height: 10vh;
+  border-radius: 20px;
+  border : yellow 3px solid;
+  background: rgba(253, 232, 109, 0.952);
+  color: coral;
+  font-size: 2.5rem;
+  letter-spacing: .2rem;
+  -webkit-text-stroke: rgb(236, 42, 8) 1px;
+  box-shadow: 0 8px 0 red;
+  cursor: pointer;
+  transition: all 100ms linear;
+  font-family: 'Archivo Narrow', sans-serif;
+}
+
+
+#btn-start:active { 
+  top: 9px;
+  box-shadow: 0 3px 0 red;
+ 
+}
+
+#btn-start:focus {
+  top: 9px;
+  box-shadow: 0 3px 0 red;
+}
+
+
+
 
 #instructions {
   display: flex;
@@ -55,37 +107,33 @@ justify-content: flex-start;
   justify-content: space-between;
   height: 15vh;
   width: 80vw;
-  /*font-family: 'Nanum Pen Script', cursive; */
-  font-family: 'Cabin Sketch', cursive;
-    /*font-family: 'Kalam', cursive; */
-  /*font-family: 'Rock Salt', cursive; */
-  /* font-family: 'Bad Script', cursive; */
-  /*font-size: 1.5rem;*/
+
+  font-family: "Cabin Sketch", cursive;
   line-height: 30px;
 }
 
 #instructions p {
-text-align: center;
-font-size: .3 rem;
+  text-align: center;
+  font-size: 0.3 rem;
 }
 
-  #rules {
+#rules {
   height: 10vh;
   width: 50vw;
   /*font-family: 'Nanum Pen Script', cursive; */
-  font-family: 'Cabin Sketch', cursive;
+  font-family: "Cabin Sketch", cursive;
   line-height: 30px;
   display: none;
-  }
+}
 
-  .arrows {
-    border: 1px black solid;
-    border-radius: 5px;
-    width: 20px;
-    height: 7px;
-    padding: 4px 6px 2px 6px;
-    font-size: 2rem;
-  }
+.arrows {
+  border: 1px black solid;
+  border-radius: 5px;
+  width: 20px;
+  height: 7px;
+  padding: 4px 6px 2px 6px;
+  font-size: 2rem;
+}
 
 .spaceWord {
   border: 1px black solid;
@@ -109,28 +157,6 @@ font-size: .3 rem;
   height: 72vh;
 }
 
-#modeChoice {
-  display: none;
-  text-align: center;
-  background: blueviolet;
-  color: whitesmoke;
-  box-sizing: border-box;
-  padding: 5px;
-  margin: 0px 5px 5px 0;
-}
-
-.choice {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-#soloMode,
-#multiMode {
-  border: 3px white groove;
-  width: 15%;
-  height: 10%;
-  margin: 10px;
-}
 
 
 #breakdownBar {
@@ -148,9 +174,9 @@ font-size: .3 rem;
   height: 63vh;
   border-top: 2px solid white;
   border-bottom: 2px solid white;
-  background: url('./Ressource/img/oie_2422281rEIIbDIk.png');
+  background: url("./Ressource/img/oie_2422281rEIIbDIk.png");
   background-position-y: -20px;
-background-repeat: round;
+  background-repeat: round;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -160,31 +186,22 @@ background-repeat: round;
   text-align: center;
   grid-row: 3 / 5;
   grid-column: 2;
-  background:url('./Ressource/img/oie_HaXWmVqe4eXS.png');
+  background: url("./Ressource/img/oie_HaXWmVqe4eXS.png");
   background-size: 6.67vw;
   background-repeat: space;
-  
 }
-
 
 #fly {
-  grid-column: 5;
+  grid-column: 8;
   grid-row: 3;
-  animation: fly-movement 3s alternate cubic-bezier(.6,.07,.33,.86)  infinite;
+  animation: fly-movement 3s alternate cubic-bezier(0.6, 0.07, 0.33, 0.86)
+    infinite;
   text-align: center;
   padding-top: 10px;
-  background: url('./Ressource/img/oie_24224811zzTMdizQ.png');
+  background: url("./Ressource/img/oie_24224811zzTMdizQ.png");
   background-repeat: no-repeat;
-
 }
 
-/*#floor {
-  z-index: -1;
-  background: indigo;
-  grid-row: 5;
-grid-column: 1 / 11;
-}
-*/
 
 footer {
   position: fixed;
@@ -197,32 +214,66 @@ a {
   color: teal;
 }
 
-
 .invisible {
   display: none;
 }
 
-
 @keyframes fly-movement {
-  0% { transform: translateX(7px);}
-  25% {transform: translateY(4px);}
-  45% {transform: translateX(-5px);}
-  60% {transform: translateY(-4px);}
-  70% {transform: translateY(6px);}
-  75% {transform: translateX(3px) ;}
-  80% {transform: translateX(3px);}
-  90% { transform: translateY(2px);}
-  100% {transform: translateX(-4px);}
+  0% {
+    transform: translateX(7px);
+  }
+  25% {
+    transform: translateY(4px);
+  }
+  45% {
+    transform: translateX(-5px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+  70% {
+    transform: translateY(6px);
+  }
+  75% {
+    transform: translateX(3px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+  90% {
+    transform: translateY(2px);
+  }
+  100% {
+    transform: translateX(-4px);
+  }
 }
 
 @keyframes fly-fall {
-  0% { transform: translateY(-7px);}
-  25% {transform: rotate(10deg);}
-  45% {transform: translateY(-5px);}
-  60% {transform: translateY(-4px);}
-  70% {transform: rotate(-5deg);}
-  75% {transform: translateY(-3px) ;}
-  80% {transform: translateY(-3px) rotate(2deg);}
-  90% { transform: translateY(-2px);}
-  100% {transform: translateY(-4px) rotate(-3deg);}
+  0% {
+    transform: translateY(-7px);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  45% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+  70% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-3px);
+  }
+  80% {
+    transform: translateY(-3px) rotate(2deg);
+  }
+  90% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(-4px) rotate(-3deg);
+  }
 }

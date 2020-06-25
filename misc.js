@@ -26,7 +26,6 @@ export function timerBar(status) {
         }
         elem.style.background = "orange";
       }
-
       elem.style.background = "yellow";
     }
   }
@@ -65,6 +64,7 @@ buzzClip3.src =
   "./Ressource/sfx/animal_insect_fly_buzz_around_close_up_002.mp3";
   buzzClip3.volume = .2;
 
+  
 export function loadSounds() {
   const urls = [
     "./Ressource/sfx/zapsplat_animal_insect_bee_wasp_fly_by_001_40041.mp3",
@@ -97,6 +97,10 @@ export function randomBuzz(sound1, sound2) {
 
 export var music = document.getElementById("gameMusic");
 music.volume = 0.1;
+music.loop = true;
+
+
+export var btnStart = document.getElementById('btn-start')
 
 /*export function addKill () {
   var killsDiv = document.getElementById("points");
