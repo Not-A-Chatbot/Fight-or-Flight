@@ -27,15 +27,19 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 4rem;
+  font-size: 4.3rem;
   color: crimson;
   font-family: "Covered By Your Grace", cursive;
 }
 
 #points {
   margin-left: 38vw;
+  height: 3vh;
+  width: 40vw;
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow: scroll;
 }
 
 .newKill {
@@ -47,7 +51,6 @@ h1 {
 }
 
 
-
 #intro {
   position: absolute;
   z-index: 5;
@@ -55,7 +58,7 @@ h1 {
   top: 27vh;
   left: 10vw;
   border-radius: 5vw;
-  font-family: "Rock Salt", cursive;
+  font-family: 'Archivo Narrow', sans-serif;
   font-size: 1.4rem;
   display: flex;
   flex-flow: column wrap;
@@ -66,6 +69,10 @@ h1 {
   height: 40vh;
   box-sizing: border-box;
   padding: 2vh 0 3vh 0;
+}
+
+.flyWord {
+  font-family: "Rock Salt", cursive;
 }
 
 #btn-start {
@@ -158,11 +165,10 @@ h1 {
 }
 
 
-
 #breakdownBar {
   margin-top: 1vh;
-  background: rgb(235, 182, 122);
-  color: brown;
+  background: rgb(10, 189, 64);
+  border: greenyellow 1px groove;
   width: 100vw;
   height: 3vh;
   border-radius: 20px;
@@ -171,7 +177,7 @@ h1 {
 .gameDisplay {
   box-sizing: border-box;
   width: 100vw;
-  height: 63vh;
+  height: 60vh;
   border-top: 2px solid white;
   border-bottom: 2px solid white;
   background: url("./Ressource/img/oie_2422281rEIIbDIk.png");

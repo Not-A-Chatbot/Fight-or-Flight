@@ -1,3 +1,6 @@
+import {setGameNextAction} from './main-script.js';
+
+
 export function timerBar(status) {
   var elem = document.getElementById("breakdownBar");
   var width = 100;
@@ -10,6 +13,7 @@ export function timerBar(status) {
       clearInterval(id);
       //console.log("hey");
       width = 0;
+      setGameNextAction('endGame');
     } else {
       width--;
       elem.style.width = width + "vw";
@@ -32,6 +36,7 @@ export function timerBar(status) {
 
   return o;
 }
+
 
 export var hitSound = document.createElement("audio");
 hitSound.src = "./Ressource/sfx/NFF-slap-03.wav";
@@ -63,7 +68,6 @@ export var buzzClip3 = document.createElement("audio");
 buzzClip3.src =
   "./Ressource/sfx/animal_insect_fly_buzz_around_close_up_002.mp3";
   buzzClip3.volume = .2;
-
   
 export function loadSounds() {
   const urls = [
@@ -80,7 +84,7 @@ export function loadSounds() {
 
       s.addEventListener("loadeddata", (evt) => {
         count++;
-        console.log("sound load event done", evt);
+        //console.log("sound load event done", evt);
         sounds.push(evt.path[0]);
         if (count === urls.length) resolve(sounds);
       });

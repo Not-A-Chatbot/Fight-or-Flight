@@ -27,11 +27,11 @@ var player1, fly1, timer;
  */
 
 //console.log(">", loadSounds());
-
 loadSounds().then((audioObjects) => {});
-
 // un array contenant tes audio obj ... index => play() // pause()
 //console.log("yata ?", audioObjects[0].play());
+
+
 
 /*  EVT LISTENERS & actions */
 
@@ -60,35 +60,49 @@ const checkMovement = (e) => {
   }
 };
 
-function setGameNextAction(mode) {
-  alert("in callback", mode)  
-  if (mode === "inc-level") level++;
-  letsPlay();
+export function setGameNextAction(mode) {
+  console.log("in callback", mode)  
+  if (mode === "inc-level") {//level++;
+  letsPlay();}
+  else {
+    console.log(`heyyy time's up !`);
+    fly1.catched();
+  }
 }
 
-var level = 0;
+//var level = 0;
 var flyLevels = [
-  {stealth: 0.3, speed: 2500},
-  {stealth: 0.5, speed: 2200},
+  {stealth : 0.9, speed : 2550},
+  {stealth : 0.8, speed : 2500},
+  {stealth : 0.6, speed : 2300},
+  {stealth : 0.5, speed : 2000},
+  {stealth : 0.3, speed : 1500},
+  {stealth : 0.2, speed : 1000},
+  {stealth : 0.2, speed : 1000},
+  {stealth : 0.1, speed : 1500},
+  {stealth : 0.2, speed : 1000},
+  {stealth : 0.1, speed : 950}
 ]
 
 const letsPlay = () => {
-
-  alert("ok")
-
-  if (level === 0) {
-    timer = timerBar();
-    player1 = new GameCharacter(charElt,3,4,2,2);
-  }
-
-  fly1 = new Fly(flyElt, "3", "8", flyLevels[level].stealth, 2500, timer);
-  fly1.move(setGameNextAction);
   
+console.log("letsPlay - ok")
+  if (kills === 0) {
+    player1 = new GameCharacter(charElt,3,4,2,2);
+    fly1 = new Fly(flyElt, "3", "8", flyLevels[kills].stealth, flyLevels[kills].speed)
+    console.log(`fly #${kills} - ${fly1}`);
+  } else if (kills >= 10) {
+    fly1 = new Fly(flyElt, "3", "8", flyLevels[9].stealth, flyLevels[9].speed)
+  }
+  fly1 = new Fly(flyElt, "3", "8", flyLevels[kills].stealth, flyLevels[kills].speed);
+  console.log(`fly #${kills} - ${fly1}`);
+  fly1.move(setGameNextAction);
+
 };
 
 btnStart.onclick = () => {
   btnStart.parentElement.style.display = "none";
-  //fly1.newFly();
   letsPlay();
   document.onkeydown = checkMovement;
+  timer = timerBar();
 };
