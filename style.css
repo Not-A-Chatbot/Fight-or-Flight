@@ -1,19 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bad+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
-/*font-family: 'Nanum Pen Script', cursive; */
-/*font-family: 'Cabin Sketch', cursive;*/
-/*font-family: 'Kalam', cursive; */
-/*font-family: 'Rock Salt', cursive; */
-/* font-family: 'Bad Script', cursive; */
-/*font-family: 'Archivo Narrow', sans-serif;*/
-/* font-family: 'Fredoka One', cursive; */
 
 
 * {
@@ -173,14 +161,6 @@ h1 {
   font-size: 0.3 rem;
 }
 
-#rules {
-  height: 10vh;
-  width: 50vw;
-  /*font-family: 'Nanum Pen Script', cursive; */
-  font-family: "Cabin Sketch", cursive;
-  line-height: 30px;
-  display: none;
-}
 
 .arrows {
   border: 1px black solid;
