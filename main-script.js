@@ -1,5 +1,5 @@
-import { GameCharacter } from "/PC.js";
-import { kills, flyElt, Fly } from "/fly.js";
+import { GameCharacter } from "./PC.js";
+import { kills, flyElt, Fly } from "./fly.js";
 import {killsConclusionElt,killsElt,
   btnStart,
   btnAgain,
@@ -10,7 +10,7 @@ import {killsConclusionElt,killsElt,
   killSound,
   missSound,
   jumpSound,
-} from "/misc.js";
+} from "./misc.js";
 
 /*
 Directions : left, right
