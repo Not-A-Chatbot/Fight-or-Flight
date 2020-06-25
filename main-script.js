@@ -1,5 +1,5 @@
 import { GameCharacter } from "./PC.js";
-import { kills, flyElt, Fly } from "./fly.js";
+import { kills, killsDiv, flyElt, Fly } from "./fly.js";
 import {killsConclusionElt,killsElt,
   btnStart,
   btnAgain,
@@ -21,7 +21,6 @@ Movements : left, right, jump, fall, (duck), hit
 
 var gameAreaElt = document.getElementsByClassName("gameDisplay");
 var charElt = document.getElementById("character");
-
 var player1, fly1, timer;
 
 /*
@@ -32,7 +31,7 @@ loadSounds().then((audioObjects) => {});
 // un array contenant tes audio obj ... index => play() // pause()
 //console.log("yata ?", audioObjects[0].play());
 
-killsElt.innerText = `${kills}`;
+
 
 /*  EVT LISTENERS & actions */
 
@@ -70,7 +69,7 @@ export function setGameNextAction(mode) {
     if (kills === 0) {
       killsConclusionElt.innerText = `Now might be a good time to open the window...`;
       console.log(`0 kills changed inner text`);
-    } else {killsConclusionElt.innerText = `You can now rest before the dead bodies of your ennemies.`; console.log(`multiple kills changed innertext`);}
+    } else {killsConclusionElt.innerHTML = `You can now rest before the dead bodies of your ennemies. <br> Or continue ..!`; console.log(`multiple kills changed innertext`);}
     killsElt.innerText = `${kills}`;
     console.log(`added nb of kills`);
     fly1.catched();
@@ -124,7 +123,7 @@ btnStart.onclick = () => {
 
 btnAgain.onclick = () => {
   btnAgain.parentElement.classList.toggle("inactive");
-  letsPlay();
+  setGameNextAction("inc-level");
   document.onkeydown = checkMovement;
   timer = timerBar();
 };

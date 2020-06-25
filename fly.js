@@ -1,6 +1,6 @@
 import {buzzClip1, buzzClip2, buzzClip3, randomBuzz, music, timerBar } from "./misc.js";
-export var kills = 0;
-
+export let kills = 0;
+export var killsDiv = document.getElementById("points");
 
 export var flyElt = document.getElementById("fly");
 
@@ -79,7 +79,6 @@ export class Fly {
 
 
 export function addKill () {
-  var killsDiv = document.getElementById("points");
   var newKill = document.createElement('div');
   newKill.classList.add('newKill');
   killsDiv.appendChild(newKill);
