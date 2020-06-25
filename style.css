@@ -71,7 +71,7 @@ h1 {
   padding: 2vh 0 3vh 0;
 }
 
-.flyWord {
+.emWord {
   font-family: "Rock Salt", cursive;
 }
 
@@ -105,8 +105,55 @@ h1 {
   box-shadow: 0 3px 0 red;
 }
 
+#end {
+  position: absolute;
+  z-index: 5;
+  background: rgba(176, 224, 230, 0.79);
+  top: 27vh;
+  left: 10vw;
+  border-radius: 5vw;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 1.4rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  width: 80vw;
+  height: 40vh;
+  box-sizing: border-box;
+  padding: 2vh 0 3vh 0;
+}
+
+#btn-again {
+  position: relative;
+  box-sizing: border-box;
+  width: 15vw;
+  height: 10vh;
+  border-radius: 20px;
+  border : yellow 3px solid;
+  background: rgba(253, 232, 109, 0.952);
+  color: coral;
+  font-size: 2.5rem;
+  letter-spacing: .2rem;
+  -webkit-text-stroke: rgb(236, 42, 8) 1px;
+  box-shadow: 0 8px 0 red;
+  cursor: pointer;
+  transition: all 100ms linear;
+  font-family: 'Archivo Narrow', sans-serif;
+}
 
 
+#btn-again:active { 
+  top: 9px;
+  box-shadow: 0 3px 0 red;
+ 
+}
+
+#btn-again:focus {
+  top: 9px;
+  box-shadow: 0 3px 0 red;
+}
 
 #instructions {
   display: flex;
@@ -220,8 +267,8 @@ a {
   color: teal;
 }
 
-.invisible {
-  display: none;
+.inactive {
+  visibility: hidden;
 }
 
 @keyframes fly-movement {

@@ -2,6 +2,7 @@ import { GameCharacter } from "/PC.js";
 import { kills, flyElt, Fly } from "/fly.js";
 import {
   btnStart,
+  btnAgain,
   timerBar,
   loadSounds,
   music,
@@ -101,7 +102,14 @@ console.log("letsPlay - ok")
 };
 
 btnStart.onclick = () => {
-  btnStart.parentElement.style.display = "none";
+  btnStart.parentElement.classList.toggle = "inactive";
+  letsPlay();
+  document.onkeydown = checkMovement;
+  timer = timerBar();
+};
+
+btnAgain.onclick = () => {
+  btnAgain.parentElement.classList.toggle = "inactive";
   letsPlay();
   document.onkeydown = checkMovement;
   timer = timerBar();

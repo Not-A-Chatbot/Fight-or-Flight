@@ -1,5 +1,4 @@
-import {setGameNextAction} from './main-script.js';
-
+import { setGameNextAction } from "./main-script.js";
 
 export function timerBar(status) {
   var elem = document.getElementById("breakdownBar");
@@ -8,12 +7,10 @@ export function timerBar(status) {
   var o = { status: "running" };
 
   function progress() {
-    //console.log(o.status);
-    if (width <= 1 || o.status == "pause") {
+    if (width == 0 || o.status == "pause") {
       clearInterval(id);
-      //console.log("hey");
-      width = 0;
-      setGameNextAction('endGame');
+      setGameNextAction("endGame");
+      btnAgain.parentElement.classList.toggle = "inactive";
     } else {
       width--;
       elem.style.width = width + "vw";
@@ -21,22 +18,28 @@ export function timerBar(status) {
     }
   }
 
+
   function colorChange() {
-    if (width <= 75) {
-      if (width <= 50) {
-        if (width <= 35) {
-          if (width <= 15) elem.style.background = "brown";
-          elem.style.background = "red";
-        }
-        elem.style.background = "orange";
-      }
+    if (width <= 75 && width > 50) {
       elem.style.background = "yellow";
     }
+    if (width <= 50 && width > 35) {
+      elem.style.background = "orange";
+    }
+
+    if (width <= 35 && width > 15) {
+      elem.style.background = "red";
+    }
+
+    if (width <= 15) {
+      elem.style.background = "brown";
+    }
+
+    elem.style.background = "gb(10, 189, 64)";
   }
 
   return o;
 }
-
 
 export var hitSound = document.createElement("audio");
 hitSound.src = "./Ressource/sfx/NFF-slap-03.wav";
@@ -57,18 +60,18 @@ jumpSound.volume = 0.2;
 export var buzzClip1 = document.createElement("audio");
 buzzClip1.src =
   "./Ressource/sfx/zapsplat_animal_insect_bee_wasp_fly_by_001_40041.mp3";
-  buzzClip1.volume = .2;
+buzzClip1.volume = 0.2;
 
 export var buzzClip2 = document.createElement("audio");
 buzzClip2.src =
   "./Ressource/sfx/zapsplat_animals_insect_bee_wing_flap_short_pre_flight_12000.mp3";
-  buzzClip2.volume = .2;
+buzzClip2.volume = 0.2;
 
 export var buzzClip3 = document.createElement("audio");
 buzzClip3.src =
   "./Ressource/sfx/animal_insect_fly_buzz_around_close_up_002.mp3";
-  buzzClip3.volume = .2;
-  
+buzzClip3.volume = 0.2;
+
 export function loadSounds() {
   const urls = [
     "./Ressource/sfx/zapsplat_animal_insect_bee_wasp_fly_by_001_40041.mp3",
@@ -95,22 +98,18 @@ export function loadSounds() {
 export function randomBuzz(sound1, sound2) {
   const random = Math.floor(Math.random() * 2);
   //console.log(random)
-  if (random == 0) { sound1.play() 
-  } else { sound2.play()}
+  if (random == 0) {
+    sound1.play();
+  } else {
+    sound2.play();
+  }
 }
 
 export var music = document.getElementById("gameMusic");
 music.volume = 0.1;
 music.loop = true;
 
+export var btnStart = document.getElementById("btn-start");
+export var btnAgain = document.getElementById("btn-again");
 
-export var btnStart = document.getElementById('btn-start')
 
-/*export function addKill () {
-  var killsDiv = document.getElementById("points");
-  var newKill = document.createElement('div');
-  newKill.classList.add('newKill');
-  killsDiv.appendChild(newKill);
-  kills ++
-}
-*/

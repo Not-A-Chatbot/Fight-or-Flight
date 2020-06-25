@@ -8,16 +8,26 @@
     <script src="main-script.js" type="module"></script>
   </head>
   <h1>FIGHT OR FLIGHT</h1>
-  <div id="points"> </div>
+  <div id="points"> <span class="invisible">here go the points </span></div>
   
   <div id="intro">
       <p>
         You were just chillin' and you hear <br />
-        a <span class="flyWord">MAD BUZZ SOUND</span> <br />
-        this <span class="mustWord">MUST</span> stop before you go crazy !
+        a <span class="emWord">MAD BUZZ SOUND</span> <br />
+        this MUST stop before you go crazy !
       </p>
       <button id="btn-start">START</button>
   </div>
+
+  <div id="end" class="inactive">
+    <p>
+      You fought the source of this <br />
+      <span class="emWord">MAD BUZZ SOUND</span> <br />
+      and <span class="emWord">killed</span> <span id="kills"></span> flies! <br>
+      You can now rest before the dead bodies of your ennemies.
+    </p>
+    <button id="btn-again">AGAIN ?!</button>
+</div>
 
 
   <section class="bloc2">

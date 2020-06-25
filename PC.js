@@ -1,4 +1,5 @@
 import { killSound, missSound, jumpSound, hitSound } from "./misc.js";
+import {addKill} from './fly.js';
 
 export class GameCharacter {
   constructor(eltHTML, rowStart, rowEnd, columnStart, columnEnd) {
